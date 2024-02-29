@@ -13,7 +13,7 @@ router.get("/", async (req,res)=>{
         res.json(brands)
     }
     catch(err){
-        res.send("An error occured :", err)
+        res.status(500).send("An error occured :", err)
     }
 })
 
@@ -23,7 +23,7 @@ router.get('/:id', async(req, res)=>{
         res.json(brands)
     }
     catch(err){
-        res.send("An error occured :", err)
+        res.status(500).send("An error occured :", err)
     }
 })
 
@@ -37,7 +37,7 @@ router.post('/add', async(req, res)=>{
         res.json(any)
     }
     catch(err){
-     res.send("An error occured :", err)   
+        res.status(500).send("An error occured :", err) 
     }
 })
 
@@ -50,7 +50,7 @@ router.put('/:id', async(req, res)=>{
         res.json(brands);
     }
     catch(err){
-        res.status(500).send("Error", err);
+        res.status(500).send("An error occured :", err)
     }
 })
 
@@ -63,7 +63,7 @@ router.patch('/:id', async (req, res) => {
             res.json(brands);
         }
     } catch (err) {
-        res.status(500).send("Error", err);
+        res.status(500).send("An error occured :", err)
     }
 });
 
@@ -76,7 +76,7 @@ router.delete('/:id', async (req, res) => {
         }
         res.send("Deleted Successfully");
     } catch (err) {
-        res.status(500).send("Error deleting it");
+        res.status(500).send("An error occured :", err)
     }
 })
 
