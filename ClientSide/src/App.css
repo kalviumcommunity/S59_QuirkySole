@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
+
+body{
+  margin: 0;
+  padding: 0;
+  background-color: rgb(247, 247, 198);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.headDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  height:40;
+  color: white;
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  box-shadow: 1px 2px 30px #4158D0;
+  user-select: none;
+  border-radius: 1vh;
+  font-family: "Anta", sans-serif;
+
+}
+
+.headDiv:hover {
+  transform: scale(1.009);
+  transition-duration: 0.5s;
+}
+
+.headDiv:not(:hover) {
+  transition-duration: 0.5s;
+}
