@@ -21,3 +21,4 @@ Select a Category: Choose from pre-defined categories such as shoes, crocs, heel
 
 # Deployment Link
 - https://s59-quirkysole.onrender.com
+CloudFlare - https://abhinandangupta-quirkysole-s59.pages.dev/
