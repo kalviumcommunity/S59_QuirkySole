@@ -2,14 +2,25 @@ const express = require('express')
 
 const router = express.Router();
 
-const {connectToDB} = require('./db')
+const {connectToDB} = require('../db')
 
-const brand = require('./schema')
+const slippers = require('../Models/slipperSchema')
+const crocs = require('../Models/crocsSchema')
 connectToDB()
 
-router.get("/", async (req,res)=>{
+router.get("/slippers", async (req,res)=>{
     try{
-        const brands = await brand.find()
+        const brands = await slippers.find()
+        res.json(brands)
+    }
+    catch(err){
+        res.status(500).send("An error occured :", err)
+    }
+})
+
+router.get("/crocs", async (req,res)=>{
+    try{
+        const brands = await crocs.find()
         res.json(brands)
     }
     catch(err){

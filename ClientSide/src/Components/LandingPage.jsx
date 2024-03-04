@@ -8,6 +8,11 @@ function LandingPage() {
         <h1 style={{fontSize:"80px"}}>Quirky Sole</h1>
         <h2 style={{fontSize:"30px"}}>"Dive into the peculiar with our selection of the quirkiest, weirdest shoes you've ever laid eyes on!"</h2>
       </div>
+
+      <div>
+        <div>Slippers</div>
+        <div>Crocs</div>
+      </div>
     </div>
   )
 }

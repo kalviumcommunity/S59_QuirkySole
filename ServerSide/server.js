@@ -1,4 +1,4 @@
-const routes = require('./routes');
+const routes = require('./Controller/routes');
 const express = require('express');
 const mongoose = require('mongoose')
 const app = express();
@@ -8,7 +8,7 @@ connectToDB()
 app.use(express.json());
 
 // Mount routes
-app.use('/brands', routes);
+app.use('/api', routes);
 
 app.get('/', (req, res)=>{
     if(isConnected()){
