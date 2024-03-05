@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&family=Trade+Winds&display=swap');
+
 body{
   margin: 0;
   padding: 0;
-  background-color: rgb(247, 247, 198);
+  background-color: white;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -24,6 +26,19 @@ body{
 
 }
 
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+}
+
+.animated-float {
+  animation: floatLeftAndRight 25s linear infinite, floatUpDown 3s ease-in-out infinite;
+}
+
 .headDiv:hover {
   transform: scale(1.009);
   transition-duration: 0.5s;
@@ -31,4 +46,86 @@ body{
 
 .headDiv:not(:hover) {
   transition-duration: 0.5s;
+}
+
+.categories{
+  background-color: #FFCC70;
+  height: 10vw;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 40vw;
+  border-radius: 20px;
+  font-size: xx-large;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 1px 1px 1px 1px;
+}
+
+.parent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.divImage{
+  height: 15vw;
+  width: 15vw;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 51vw;
+  margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 15px;
+  padding: 7px;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  background-color: #e5e1e1;
+}
+
+
+
+.nameAndDes{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-wrap: wrap;
+  padding: 0 0 20px 18px;
+}
+
+.pAndM{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 18px;
+  width: 30vw;
+  font-size: 18px;
+}
+
+.navbar{
+  display: flex;
+  align-items: center   ;
+  box-shadow: 0 0 12px;
+  height: 8vw;
+  font-family: "Trade Winds", system-ui;
+  font-family: 80px;
+  background-color:#9a9a9a;
+}
+
+.navLeft{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width: 1;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
