@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Card(props) {
   return (
@@ -6,7 +7,7 @@ function Card(props) {
 
       {props.data.map((item)=>{
         return (
-          <div key = {item.ID} class="card">
+          <div key = {item.ID} className="card">
 
             <img src={item.imageURL} alt={item.name} className='divImage'/>
             
@@ -23,6 +24,8 @@ function Card(props) {
               </div>
               
             </div>
+
+            <Link to="/review" state={item}><button>Add to Route</button></Link>
             
           </div>
         )

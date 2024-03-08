@@ -7,13 +7,14 @@ const app = express();
 
 const port = 1213
 
-
-
 app.use(cors())
 const routes = require('./Controller/routes');
+const reviewRoute = require('./Controller/Review-Routes')
 app.use(express.json());
 // Mount routes
 app.use('/api', routes);
+app.use('/review',reviewRoute )
+
 
 connectToDB()
 
