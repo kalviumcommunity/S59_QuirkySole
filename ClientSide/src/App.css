@@ -1,13 +1,115 @@
 @import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Madimi+One&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 body{
   margin: 0;
   padding: 0;
-  background-color: rgb(225, 222, 222);
+  background-color: #FBFADA;
   font-family: "PT Sans", sans-serif;
 }
 
+/* Navbar CSS */
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 12px;
+  height: 6.5vw;
+  font-family: "Trade Winds", system-ui;
+  font-family: 80px;
+  background-color:#436850;
+  padding-left: 1vw ;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navLeft{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width: 1;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.navRight{
+  display: flex;
+  color: white;
+  font-size: x-large;
+  justify-content: space-evenly;
+  width: 30vw;
+}
+
+/* Banner CSS */
+
+.banner{
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  height: 20vw;
+  background-color:#99ab8a;
+  border-radius: 7px;
+  margin: 20px 15px 20px 15px;
+  padding: 15px 15px 15px 20px;
+  position: relative;
+  animation: floatUpDown 3s infinite;
+  box-shadow: 0 0 20px rgb(146, 163, 130)
+}
+
+.bannerShoeimg{
+  height: 20vw;
+  width: 17vw;
+}
+
+.bannerText{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.bheading{
+  font-size: 5vw;
+}
+.bdes{
+  font-size: 2vw;
+}
+
+/* Up and Down Floating Animation */
+
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0.5s);
+  }
+  50% {
+    transform: translateY(-7px);
+  } 
+}
+
+/* Explore Heading CSS */
+
+.lines{
+  background-color:#12372a5b;
+  height: 0.1px;
+  margin: 0 6vw 0 6vw;
+  margin-top: 10px;
+}
+
+.categoryHeading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4.3vw;
+  font-weight: 700;
+  color: #12372A;
+  text-shadow: 0 0 10px rgba(67, 104, 80, 0.418);
+}
+
+/* Categories Section */
 .categories{
   background-color: #f4f4f4;
   height: 10vw;
@@ -47,34 +149,38 @@ body{
   justify-content: space-evenly;
 }
 
-.divImage{
-  height: 15vw;
-  width: 15vw;
-  border-radius: 20px;
-  padding: 10px;
-}
-
+/* Css for the Cards displaying data */
 .card {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 51vw;
-  background-color: white;
+  background-color: #adbc9f99;
   margin-bottom: 20px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   border-radius: 15px;
   padding: 7px;
   transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  color: #12372A;
+  padding: 10px 20px 10px 10px;
+}
+
+.cardImage{
+  height: 15vw;
+  width: 15vw;
+  border-radius: 20px;
+  padding: 10px;
+  
 }
 
 .card:hover {
   transform: scale(1.02);
-  background-color: #e5e1e1;
+  background-color: #173f315b;
 }
 
 
-
+/* Name and Description in the card */
 .nameAndDes{
   display: flex;
   flex-direction: column;
@@ -86,45 +192,49 @@ body{
 .nameAndDes h2{
   margin-bottom: 0;
   margin-top: 0;
+  font-size: 30px;
 }
 
 .nameAndDes p{
   font-size: 20px;
 }
 
+.details{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reviewButtonDiv{
+  margin-right: 25px;
+}
+
+.rbtn {
+  background-color: #ffffff;
+  border-radius: 50px;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+  cursor: pointer;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  height:3vw;
+}
+
+
 .pAndM{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-left: 18px;
-  width: 25vw;
   font-size: 18px;
+  margin-left: 18px;
+  width: 16vw;
 }
 
-.navbar{
-  display: flex;
-  align-items: center   ;
-  box-shadow: 0 0 12px;
-  height: 6.5vw;
-  font-family: "Trade Winds", system-ui;
-  font-family: 80px;
-  background-color:#1D2b53;
-  padding-left: 1vw ;
-}
 
-.navLeft{
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  width: 1;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.banner{
-  display: flex;
-  justify-content: right;
-}
 
 .blocks{
   display: flex;
@@ -135,95 +245,208 @@ body{
   align-items: center;
 }
 
-/* Loader */
-.loader-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Adjust the height as needed */
-}
+/* CSS for the review container on the review page */
 
-.lds-spinner div {
-  transform-origin: 40px 40px;
-  animation: lds-spinner 1.2s linear infinite;
-}
-.lds-spinner div:after {
-  content: " ";
-  display: block;
-  position: absolute;
-  top: 3px;
-  left: 37px;
-  width: 6px;
-  height: 18px;
-  border-radius: 20%;
-  background: #fff;
-}
-.lds-spinner div:nth-child(1) {
-  transform: rotate(0deg);
-  animation-delay: -1.1s;
-}
-.lds-spinner div:nth-child(2) {
-  transform: rotate(30deg);
-  animation-delay: -1s;
-}
-.lds-spinner div:nth-child(3) {
-  transform: rotate(60deg);
-  animation-delay: -0.9s;
-}
-.lds-spinner div:nth-child(4) {
-  transform: rotate(90deg);
-  animation-delay: -0.8s;
-}
-.lds-spinner div:nth-child(5) {
-  transform: rotate(120deg);
-  animation-delay: -0.7s;
-}
-.lds-spinner div:nth-child(6) {
-  transform: rotate(150deg);
-  animation-delay: -0.6s;
-}
-.lds-spinner div:nth-child(7) {
-  transform: rotate(180deg);
-  animation-delay: -0.5s;
-}
-.lds-spinner div:nth-child(8) {
-  transform: rotate(210deg);
-  animation-delay: -0.4s;
-}
-.lds-spinner div:nth-child(9) {
-  transform: rotate(240deg);
-  animation-delay: -0.3s;
-}
-.lds-spinner div:nth-child(10) {
-  transform: rotate(270deg);
-  animation-delay: -0.2s;
-}
-.lds-spinner div:nth-child(11) {
-  transform: rotate(300deg);
-  animation-delay: -0.1s;
-}
-.lds-spinner div:nth-child(12) {
-  transform: rotate(330deg);
-  animation-delay: 0s;
-}
-@keyframes lds-spinner {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.2; /* Adjust the final opacity as needed (e.g., 0.8 for 80%) */
-  }
-}
-
-
-/* Comment and review Page */
-
-.reviewContainer{
+.WholeReviewContainer{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 80vh;
+}
+
+.reviewContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
   background-color: white;
-  height: 200px;
-  width: 400px;
+  height: 500px;
+  width: 80vw;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 15px;
+  background-color: #adbc9f99;
+}
+
+.reviewHeading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0 10px 0;
+  font-size: 3.3vw;
+  font-weight: 700;
+  color: #12372A;
+  text-shadow: 0 0 10px rgba(67, 104, 80, 0.418);
+}
+
+
+/* CSS for the input field on the Review Page */
+.inputField{
+  height: 2.8vw;
+  border-radius: 10px;
+  width: 42vw;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  font-size:1.25vw;
+  padding: 10px 10px 10px 18px;
+  
+}
+
+/* css for the comment button */
+
+.commentBtn {
+  align-items: center;
+  background-color: #FCFCFD;
+  border-radius: 12px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  color: #36395A;
+  cursor: pointer;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  line-height: 1;
+  padding-left: 16px;
+  padding-right: 16px;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  font-size: 18px;
+}
+
+.commentBtn:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.commentBtn:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+.commentContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.commentBox{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #adbc9f99;
+  height: 16vw;
+  padding: 4px 10px 4px 10px;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin: 20px 0 60px 0;
+
+}
+.comment{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 60vw;
+  height: 14.8vw;
+  border-radius: 10px 0px 0px 10px ;
+  box-shadow: 
+    rgba(0, 0, 0, 0.15) -1.95px -1.95px 2.6px, rgba(0, 0, 0, 0.16) 0px -3px 6px,rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+
+.deleteBtn, .updateBtn{
+  height: 14.8vw;
+  width: 8vw;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px -3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.deleteBtn{
+  border-radius: 0px 10px 10px 0px ;
+}
+
+.updateBtn{
+  border-left: 0.2px solid #adbc9f99; 
+  border-right: 0.2px solid #adbc9f99;
+}
+
+.updateBtn:hover, .deleteBtn:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.01);
+}
+
+.icon{
+  height: 3.5vw;
+}
+
+/* CSS for the scroll bars */
+::-webkit-scrollbar {
+  width: 8px; 
+  z-index: -2;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f114;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #436850; 
+  border-radius: 6px; 
+}
+
+/* CSS for the Loader */
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loader {
+  border: 8px solid #00000016; 
+  border-top: 8px solid #12372A;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+/* Spin animation for the loader */
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* CSS for the delete confirmation */
+.confirmation-dialog {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #12372ad4;
+  padding: 20px;
+  height: 10vw;
+  width: 40vw;
+  display: flex;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 10px #12372a;
+  z-index: 999;
+  border-radius: 20px;
+  
+}
+
+.confirmation-dialog p{
+  font-size: 30px;
+}
+
+.confirmation-dialog button {
+  margin: 0 10px;
 }
