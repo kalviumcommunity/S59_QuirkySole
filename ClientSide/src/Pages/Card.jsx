@@ -1,15 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from '../Components/Navbar';
 
 function Card(props) {
   return (
-    <div className="container">
+    <>
+      <Navbar/>
+      <div className="container">
+
 
       {props.data.map((item)=>{
         return (
           <div key = {item.ID} className="card">
 
-            <img src={item.imageURL} alt={item.name} className='divImage'/>
+            <img src={item.imageURL} alt={item.name} className='cardImage'/>
             
             <div>
 
@@ -18,20 +22,26 @@ function Card(props) {
                 <p>{item.description}</p>
               </div>
 
-              <div className='pAndM'>
-                <div>Price: ${item.price}</div>
-                <div>Material:{item.material}</div>
+              <div className="details">
+                <div className='pAndM'>
+                  <div>Price: ${item.price}</div>
+                  <div>Material:{item.material}</div>
+                </div>
+                <div className='reviewButtonDiv'>
+                  <Link to="/review" state={item}><button className='rbtn'>Add to Review</button></Link>
+                </div>
               </div>
               
             </div>
 
-            <Link to="/review" state={item}><button>Add to Route</button></Link>
             
           </div>
         )
       })}
 
     </div>
+    </>
+    
   );
 }
 
