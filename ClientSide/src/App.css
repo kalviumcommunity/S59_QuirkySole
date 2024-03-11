@@ -384,7 +384,7 @@ body{
 
 /* CSS for the scroll bars */
 ::-webkit-scrollbar {
-  width: 8px; 
+  width: 4px; 
   z-index: -2;
 }
 

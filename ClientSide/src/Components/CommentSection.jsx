@@ -1,40 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import deleteIcon from '../assets/delete.png';
-import edit from '../assets/edit.png';
+import editIcon from '../assets/edit.png'; 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function CommentSection({ shoeData, name }) {
+function CommentSection({ name ,setUpId, setClickUpdate,handleEntities}) {
   const [data, setData] = useState([]);
   const [selectedComment, setSelectedComment] = useState(null);
+  
+  // const [refreshData, setRefreshData] = useState(0); 
 
-  useEffect(() => {
+  const fetchComments = () => {
     fetch('https://s59-quirkysole.onrender.com/review')
       .then(res => res.json())
       .then(res => {
-        console.log(res);
         setData(res);
       })
-      .catch(err => console.log("There was an error"));
+      .catch(err => console.log("There was an error", err));
+  };
+
+  useEffect(() => {
+    fetchComments();
   }, [data]);
 
-  const handleDelete = commentId => {
-      fetch(`https://s59-quirkysole.onrender.com/review/${commentId}`, {
-        method: 'DELETE',
+
+  const handleDelete = (commentId) => {
+    fetch(`https://s59-quirkysole.onrender.com/review/${commentId}`, {
+      method: 'DELETE'
+    })
+      .then((res) => {
+        setData(prevData => prevData.filter(comment => comment._id !== commentId));
+         toast.success("Comment deleted successfully");
+        fetchComments()
       })
-        .then(res => res.json())
-        .then(res => {
-          console.log(res);
-          setData(prevData => prevData.filter(comment => comment._id !== commentId));
-          toast.success("Comment deleted successfully");
-        })
-        .catch(err => {
-          console.log("An error was caught!");
-          toast.error("Comment was not deleted");
-        });
+      .catch(err => {
+       console.log("An error was caught!", err);
+       toast.error("Comment was not deleted");
+      });
     setSelectedComment(null);
   };
-  
+
+ 
+
   return (
     <>
       <div>
@@ -46,14 +53,14 @@ function CommentSection({ shoeData, name }) {
                   <div>{e.userName}</div>
                   <div>{e.comment}</div>
                 </div>
-                <button className='updateBtn'>
-                  <img src={edit} className="icon" alt="Edit" />
+                <button className='updateBtn' onClick={()=>{setClickUpdate(true),setUpId(e._id),handleEntities(e)}}>
+                  <img src={editIcon} className="icon" alt="Edit" />
                 </button>
                 <button className='deleteBtn' onClick={() => setSelectedComment(e)}>
                   <img src={deleteIcon} className='icon' alt="Delete" />
                 </button>
 
-                {selectedComment && (
+                {selectedComment && selectedComment._id === e._id && (
                   <div className="confirmation-dialog">
                     <p>Are you sure you want to delete this comment?</p>
                     <div>
