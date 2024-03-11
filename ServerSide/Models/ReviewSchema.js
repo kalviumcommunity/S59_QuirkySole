@@ -16,10 +16,6 @@ const ReviewSchema = new mongoose.Schema({
     rating: {
         type: Number,
         required: true
-    },
-    productName: {
-        type: String,
-        required: true
     }
 })
 
