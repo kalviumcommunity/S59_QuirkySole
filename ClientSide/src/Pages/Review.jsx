@@ -10,16 +10,25 @@ function Review() {
 
   const location = useLocation();
   const state = location.state.data
-  console.log(location)
+ // console.log(location)
 
   const [data, setData] = useState([])
   const [userName, setUserName] = useState("") 
   const [comment, setComment] = useState("")
   const [rating, setRating] = useState("")
   const [age, setAge] = useState("")
+  const [upId, setUpId] = useState("")
+  const [clickUpdate, setClickUpdate] = useState(false)
   var productName = location.state.name
-  console.log(productName)
+  // console.log(productName)
 
+  const handleEntities=(e)=>{
+    setUserName(e.userName)
+    setComment(e.comment)
+    setRating(e.rating)
+    setAge(e.age)
+
+  }
 
   const handleSubmit = () => {
     if(userName && comment && rating && age) {
@@ -40,7 +49,6 @@ function Review() {
       })
       .then(res=>res.json())
       .then(res=>{
-        console.log(res)
         setData(res)
         toast.success('Review added successfully!');
       })
@@ -50,54 +58,97 @@ function Review() {
       })
     }
     else{
-      toast.info('Please fill in all fields before submitting.');
+      toast.error('Please fill in all fields before submitting.');
     }
   }
+
+  const handleUpdate = async (commentId) => {
+    try {
+      const updatedObject = {
+        userName: userName || "",
+        age: age || "",
+        comment: comment || "",
+        rating: rating || ""
+      };
+  
+      const response = await fetch(`http://localhost:1213/review/update/${commentId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedObject),
+      });
+      
+      console.log('Response:', response);
+      
+      if (response.ok) {
+        const updatedShoe = await response.json();
+        toast.success("Comment updated successfully");
+        
+        setData(data.map(each => each._id === commentId ? updatedShoe : each));
+      } else {
+        const errorM = await response.text();
+        toast.error("Failed to update: " + errorM);
+        console.error("Error:", errorM);
+      }
+      
+    } catch (error) {
+      toast.error("An error occurred: " + error.message);
+      console.error("Error:", error);
+    }
+  };
+  
 
   return (
     <>
     <Navbar/>
     <div className='WholeReviewContainer'>
       <div className='reviewContainer'>
-          <div className='reviewHeading'>
+          {clickUpdate?<div className='reviewHeading'>
+            Update your Review Here!
+          </div>:<div className='reviewHeading'>
             Add your Review Here!
-          </div>
+          </div>}
           <div>
             <input 
             type="text"
             onChange={(e)=>setUserName(e.target.value)} 
             placeholder='Name' 
-            className='inputField'/>
+            className='inputField'
+            value={userName}/>
           </div>
           <div>
             <input 
             type="text"
             onChange={(e)=>setAge(e.target.value)} 
             placeholder='Age' 
-            className='inputField'/>
+            className='inputField'
+            value={age}/>
           </div>
           <div>
             <input 
             type="text"
             onChange={(e)=>setRating(e.target.value)} 
             placeholder='Rating' 
-            className='inputField'/>
+            className='inputField'
+            value={rating}/>
           </div>
           <div>
             <input 
             type="text"
             onChange={(e)=>setComment(e.target.value)} 
             placeholder='Comment' 
-            className='inputField'/>
+            className='inputField'
+            value={comment}/>
           </div>
-          <button onClick={handleSubmit} className='commentBtn'>Add Comment</button>
+          {clickUpdate ? <button onClick={()=>handleUpdate(upId)} className='commentBtn'>Update Comment</button>:<button onClick={handleSubmit} className='commentBtn'>Add Comment</button>}
         </div>
         
         {/* <pre>{JSON.stringify(data)}</pre> */}
 
       </div>
       <div className='commentContainer'>
-        <CommentSection shoeData={location} name={location.state.name}/>
+        <CommentSection shoeData={location} name={location.state.name} setUpId={setUpId} setClickUpdate = {setClickUpdate} handleEntities={handleEntities}/>
       </div>
         <ToastContainer/>
     </>
