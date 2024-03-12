@@ -22,6 +22,7 @@ function CommentSection({ name ,setUpId, setClickUpdate,handleEntities}) {
   useEffect(() => {
     fetchComments();
   }, [data]);
+  // console.log(data)
 
 
   const handleDelete = (commentId) => {
@@ -47,6 +48,7 @@ function CommentSection({ name ,setUpId, setClickUpdate,handleEntities}) {
       <div>
         {data.map(e => {
           if (name === e.productName) {
+            {console.log(e.productName)}
             return (
               <div key={e._id} className='commentBox'>
                 <div className='comment'>

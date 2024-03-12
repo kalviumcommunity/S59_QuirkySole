@@ -10,7 +10,6 @@ function Review() {
 
   const location = useLocation();
   const state = location.state.data
- // console.log(location)
 
   const [data, setData] = useState([])
   const [userName, setUserName] = useState("") 
@@ -20,7 +19,7 @@ function Review() {
   const [upId, setUpId] = useState("")
   const [clickUpdate, setClickUpdate] = useState(false)
   var productName = location.state.name
-  // console.log(productName)
+  console.log(productName)
 
   const handleEntities=(e)=>{
     setUserName(e.userName)
