@@ -450,3 +450,92 @@ body{
 .confirmation-dialog button {
   margin: 0 10px;
 }
+
+
+
+/* Sign Up Popup */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.popup-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+
+.userBtn, .rBtn{
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #00D775, #00BD68);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+  height: 44px;
+  line-height: 44px;
+  outline: 0;
+  padding: 0 20px;
+  position: relative;
+  text-align: center;
+  width: fit-content;
+  z-index: 9;
+  border: 0;
+}
+
+.userBtn:hover {
+  background: #00bd68;
+}
+
+
+.wholeRegisterPage{
+  height: 100vh;
+  width: 100%;
+  background-color: #99ab8a4f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.userInputFields{
+  height: 38px;
+  width: 18vw;
+  border-radius: 4px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.rHead{
+  margin: 0;
+  font-size: 3vw
+}
+
+
+.registrationBox{
+  background-color: white;
+  height: 40vw;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 25px;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}

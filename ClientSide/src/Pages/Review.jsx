@@ -70,7 +70,7 @@ function Review() {
         rating: rating || ""
       };
   
-      const response = await fetch(`http://localhost:1213/review/update/${commentId}`, {
+      const response = await fetch(`https://s59-quirkysole.onrender.com/review/update/${commentId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

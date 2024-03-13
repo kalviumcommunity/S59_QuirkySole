@@ -3,6 +3,8 @@
   import Home from './Pages/Home';
   import Fetch from './Pages/Fetch';
   import Review from './Pages/Review';
+  import Login from './Pages/Login';
+  import Register from './Pages/Register';
 
   function App() {
     return (
@@ -12,6 +14,9 @@
           <Route path="/slippers" element={<Fetch  sourceCode={'slippers'} />} />
           <Route path="/crocs" element={<Fetch sourceCode={'crocs'}/>}/>
           <Route path="/review" element={<Review/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/register" element={<Register/>}/>
+          
         </Routes>
       </>
     );
