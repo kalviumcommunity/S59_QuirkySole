@@ -37,6 +37,7 @@ body{
 
 .navRight{
   display: flex;
+  align-items: center;
   color: white;
   font-size: x-large;
   justify-content: space-evenly;
@@ -332,11 +333,11 @@ body{
   justify-content: space-evenly;
   align-items: center;
   background-color: #adbc9f99;
-  height: 16vw;
+  height: 12vw;
   padding: 4px 10px 4px 10px;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  margin: 20px 0 60px 0;
+  margin: 10px 0 40px 0;
 
 }
 .comment{
@@ -345,15 +346,42 @@ body{
   align-items: center;
   background-color: white;
   width: 60vw;
-  height: 14.8vw;
+  height: 10.8vw;
   border-radius: 10px 0px 0px 10px ;
   box-shadow: 
     rgba(0, 0, 0, 0.15) -1.95px -1.95px 2.6px, rgba(0, 0, 0, 0.16) 0px -3px 6px,rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
+.YesNoBtn{
+
+}
+
+/* CSS */
+.YesNoBtn{
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  color: #24292E;
+  cursor: pointer;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  user-select: none;
+}
+
+.YesNoBtn:hover {
+  background-color: #d0d2d2;
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
 
 .deleteBtn, .updateBtn{
-  height: 14.8vw;
+  height: 10.8vw;
   width: 8vw;
   background-color: white;
   display: flex;
@@ -478,7 +506,7 @@ body{
 }
 
 
-.userBtn, .rBtn{
+ .rBtn{
   background-color: initial;
   background-image: linear-gradient(-180deg, #00D775, #00BD68);
   border-radius: 5px;
@@ -498,8 +526,33 @@ body{
   border: 0;
 }
 
-.userBtn:hover {
-  background: #00bd68;
+.rBtn:hover {
+  background: #00a45b;
+}
+
+.SignBtn {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: transparent 0 0 0 3px,rgba(18, 18, 18, .1) 0 6px 20px;
+  box-sizing: border-box;
+  color: #121212;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 1 1 auto;
+  font-family: Inter,sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s,-webkit-box-shadow .2s;
+  white-space: nowrap;
+  border: 0;
 }
 
 
@@ -510,6 +563,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  background-image: url('./assets/formBackground.png');
   
 }
 
@@ -519,6 +573,8 @@ body{
   border-radius: 4px;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: 3px 0 3px 10px;
+  font-size: 17px;
 }
 
 .rHead{
@@ -536,6 +592,53 @@ body{
   justify-content: center;
   gap: 25px;
   align-items: center;
-  border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  border-radius: 10px;
+}
+
+.already {
+  color: black;
+}
+
+.WholeLoginContainer{
+  height: 100vh;
+  width: 100%;
+  background-image: url('./assets/formBackground.png');
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginBox{
+  display: flex;
+  justify-content:space-evenly;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  height: 30vw;
+  width: 30vw;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  border-radius: 10px;
+}
+
+.logoutBox{
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  height: 15vw;
+  width: 20vw;
+}
+
+.lgOutBtn{
+  height: 2.5vw;
+  width: 6vw;
+  border-radius: 5px;
+  border: none;
+  background-color: #00BD68;
+  color: white;
 }

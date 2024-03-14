@@ -18,16 +18,20 @@ function Review() {
   const [age, setAge] = useState("")
   const [upId, setUpId] = useState("")
   const [clickUpdate, setClickUpdate] = useState(false)
+  const [refresh, setRefresh] = useState(false)
   var productName = location.state.name
-  console.log(productName)
+  // console.log(productName)
 
   const handleEntities=(e)=>{
     setUserName(e.userName)
     setComment(e.comment)
     setRating(e.rating)
     setAge(e.age)
-
   }
+
+  useEffect(() => {
+    setData(data)
+  }, [setData])
 
   const handleSubmit = () => {
     if(userName && comment && rating && age) {
@@ -49,6 +53,7 @@ function Review() {
       .then(res=>res.json())
       .then(res=>{
         setData(res)
+        setRefresh(true)
         toast.success('Review added successfully!');
       })
       .catch(error=>{
@@ -84,7 +89,10 @@ function Review() {
         const updatedShoe = await response.json();
         toast.success("Comment updated successfully");
         
-        setData(data.map(each => each._id === commentId ? updatedShoe : each));
+        setData((data) => {
+          data.map((each) => (each._id === commentId ? updatedShoe : each))
+        }
+      );
       } else {
         const errorM = await response.text();
         toast.error("Failed to update: " + errorM);
@@ -147,7 +155,7 @@ function Review() {
 
       </div>
       <div className='commentContainer'>
-        <CommentSection shoeData={location} name={location.state.name} setUpId={setUpId} setClickUpdate = {setClickUpdate} handleEntities={handleEntities}/>
+        <CommentSection shoeData={location} name={location.state.name} setUpId={setUpId} setClickUpdate = {setClickUpdate} handleEntities={handleEntities} refresh={refresh}/>
       </div>
         <ToastContainer/>
     </>
