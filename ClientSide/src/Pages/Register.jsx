@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Link } from 'react-router-dom'; // Assuming you are using React Router for navigation
+import { Link } from 'react-router-dom';
 
 function Register() {
   const [name, setName] = useState('');
@@ -9,23 +9,30 @@ function Register() {
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
 
-  const handleNameChange = (event) => {
-    setName(event.target.value);
-  };
+  const namePattern = /^[A-Z][a-zA-Z]*$/;
+  const emailPattern = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
+  const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/;
 
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
 
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePhonenNumberChange = (event) => {
-    setPhoneNumber(event.target.value);
+  const validateInputs = () => {
+    if (!namePattern.test(name)) {
+      toast.error("Name must start with a capital letter.");
+      return false;
+    }
+    if (!emailPattern.test(email)) {
+      toast.error("Please enter a valid email.");
+      return false;
+    }
+    if (!passwordPattern.test(password)) {
+      toast.error("Password must include uppercase and lowercase letters, a number, and a special character.");
+      return false;
+    }
+    return true;
   };
 
   const handleRegister = async () => {
+    if (!validateInputs()) return;
+
     try {
       const response = await fetch('http://localhost:1213/user/register', {
         method: 'POST',
@@ -42,7 +49,8 @@ function Register() {
 
       if (response.ok) {
         toast.success('Registration successful');
-      } else {
+      } 
+      else {
         const errorData = await response.json();
         toast.error(`Registration failed: ${errorData.message}`);
       }
@@ -57,16 +65,16 @@ function Register() {
         <div className='registrationBox'>
           <h1 className='rHead'>Register</h1>
           <div>
-            Name:<div><input className='userInputFields' type="text" value={name} onChange={handleNameChange}/></div>
+            Name:<div><input className='userInputFields' type="text" value={name} onChange={(e) => setName(e.target.value)}/></div>
           </div>
           <div>
-            Email<div><input className='userInputFields' type="text" value={email} onChange={handleEmailChange} /></div>
+            Email<div><input className='userInputFields' type="text" value={email} onChange={(e) => setEmail(e.target.value)} /></div>
           </div>
           <div>
-            Phone:<div><input className='userInputFields' type="text" value={phoneNumber} onChange={handlePhonenNumberChange} /></div>
+            Phone:<div><input className='userInputFields' type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} /></div>
           </div>
           <div>
-            Password:<div><input className='userInputFields' type="password" value={password} onChange={handlePasswordChange} /></div>
+            Password:<div><input className='userInputFields' type="password" value={password} onChange={(e) => setPassword(e.target.value)} /></div>
           </div>
           <button onClick={handleRegister} className='rBtn'>Register</button>
           

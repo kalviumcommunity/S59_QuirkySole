@@ -5,6 +5,7 @@
   import Review from './Pages/Review';
   import Login from './Pages/Login';
   import Register from './Pages/Register';
+  import DropDown from './Pages/DropDown';
 
   function App() {
     return (
@@ -16,6 +17,7 @@
           <Route path="/review" element={<Review/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
+          <Route path="/dropdown" element={<DropDown/>}/>
           
         </Routes>
       </>

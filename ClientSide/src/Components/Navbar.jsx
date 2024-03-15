@@ -16,7 +16,7 @@ function Navbar() {
       </div>
       <div className='navRight'>
         <span>Home</span>
-        <span>Wishlist</span>
+        <Link className='navLinks' to='/dropdown'><span >Reviews</span></Link>
         <Link to= '/login'><button className='SignBtn'>Sign Up</button></Link>
       </div>
     </div>

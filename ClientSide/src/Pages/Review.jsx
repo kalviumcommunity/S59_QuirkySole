@@ -128,7 +128,7 @@ function Review() {
             <input 
             type="text"
             onChange={(e)=>setAge(e.target.value)} 
-            placeholder='Age' 
+            placeholder='age' 
             className='inputField'
             value={age}/>
           </div>
@@ -138,7 +138,7 @@ function Review() {
             onChange={(e)=>setRating(e.target.value)} 
             placeholder='Rating' 
             className='inputField'
-            value={rating}/>
+            value={rating}/>  
           </div>
           <div>
             <input 
