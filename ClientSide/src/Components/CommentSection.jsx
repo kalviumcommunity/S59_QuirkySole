@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import deleteIcon from '../assets/delete.png';
 import editIcon from '../assets/edit.png'; 
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+import {toast, ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 function CommentSection({ name ,setUpId, setClickUpdate,handleEntities, refresh}) {
   const [data, setData] = useState([]);
@@ -18,8 +18,6 @@ function CommentSection({ name ,setUpId, setClickUpdate,handleEntities, refresh}
       .catch(err => console.log("There was an error", err));
   };
 
-  // console.log(refresh)
-
   useEffect(() => {
     fetchComments();
   }, [refresh]);
@@ -32,14 +30,15 @@ function CommentSection({ name ,setUpId, setClickUpdate,handleEntities, refresh}
       .then((res) => {
         setData(prevData => prevData.filter(comment => comment._id !== commentId));
         fetchComments()
+        toast.success("Comment deleted succesfully.")
       })
       .catch(err => {
        console.log("An error was caught!", err);
+       toast.error("There was an error deleting comment.")
       });
     setSelectedComment(null);
   };
 
- 
 
   return (
     <>
@@ -51,6 +50,7 @@ function CommentSection({ name ,setUpId, setClickUpdate,handleEntities, refresh}
                 <div className='comment'>
                   <div>{e.userName}</div>
                   <div>{e.comment}</div>
+                  <div>{e.age}</div>
                 </div>
                 <button className='updateBtn' onClick={()=>{setClickUpdate(true),setUpId(e._id),handleEntities(e)}}>
                   <img src={editIcon} className="icon" alt="Edit" />
@@ -74,6 +74,7 @@ function CommentSection({ name ,setUpId, setClickUpdate,handleEntities, refresh}
           return null;
         })}
       </div>
+      <ToastContainer/>
     </>
   );
 }

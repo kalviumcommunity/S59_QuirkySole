@@ -18,7 +18,7 @@ body{
   box-shadow: 0 0 12px;
   height: 6.5vw;
   font-family: "Trade Winds", system-ui;
-  font-family: 80px;
+  font-family: 4.167vw;
   background-color:#436850;
   padding-left: 1vw ;
   position: sticky;
@@ -39,9 +39,14 @@ body{
   display: flex;
   align-items: center;
   color: white;
-  font-size: x-large;
+  font-size: 1.5vw;
   justify-content: space-evenly;
   width: 30vw;
+}
+
+.navLinks{
+  text-decoration: none;
+  color: white;
 }
 
 /* Banner CSS */
@@ -94,8 +99,6 @@ body{
 /* Explore Heading CSS */
 
 .lines{
-  background-color:#12372a5b;
-  height: 0.1px;
   margin: 0 6vw 0 6vw;
   margin-top: 10px;
 }
@@ -333,30 +336,25 @@ body{
   justify-content: space-evenly;
   align-items: center;
   background-color: #adbc9f99;
-  height: 12vw;
+  height: 10vw;
   padding: 4px 10px 4px 10px;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  margin: 10px 0 40px 0;
+  margin: 10px 0 30px 0;
 
 }
 .comment{
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: left;
   background-color: white;
   width: 60vw;
-  height: 10.8vw;
+  height: 8.8vw;
   border-radius: 10px 0px 0px 10px ;
   box-shadow: 
     rgba(0, 0, 0, 0.15) -1.95px -1.95px 2.6px, rgba(0, 0, 0, 0.16) 0px -3px 6px,rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
-.YesNoBtn{
-
-}
-
-/* CSS */
 .YesNoBtn{
   background-color: #FAFBFC;
   border: 1px solid rgba(27, 31, 35, 0.15);
@@ -381,7 +379,7 @@ body{
 }
 
 .deleteBtn, .updateBtn{
-  height: 10.8vw;
+  height: 8.8vw;
   width: 8vw;
   background-color: white;
   display: flex;
@@ -435,11 +433,11 @@ body{
 }
 
 .loader {
-  border: 8px solid #00000016; 
+  border: 2.1px solid #00000016; 
   border-top: 8px solid #12372A;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
   animation: spin 1s linear infinite;
 }
 
@@ -641,4 +639,104 @@ body{
   border: none;
   background-color: #00BD68;
   color: white;
+}
+
+
+/* DropDown Page Heading */
+.dropHead{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+
+.dropMenu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #12372A;
+  font-size: 1.3vw;
+}
+
+.menu{
+  margin: 4px 0  0 8px;
+  background-color: #12372A;
+  color: white;
+  width: 30vw;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: block;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content div {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content div:hover {
+  background-color: #f1f1f1;
+}
+
+.lines{
+  height: 0.2px;
+  background-color: rgb(181 168 168);
+}
+
+.dropComments{
+  margin: 2.5vw;
+  background-color:#99ab8a;
+  padding: 12px 12px 12px 12px;
+  border-radius: 0.5vw;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.dropMenu h1{
+  text-shadow: 0 0 10px rgba(67, 104, 80, 0.418);
+}
+
+.comm{
+  background-color: white;
+  height: 7vw;
+  border-radius: 2px;
+  display: flex; 
+  flex-direction: column;
+  margin: 1.2px 0 1.2px 0;
+  padding:  0px 0px 28px 17px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 4px 4px -2px, rgba(14, 30, 37, 0.32) 0px 4px 16px -2px;
+
+}
+
+.iconUserName{
+  font-weight: bolder;
+  font-size: 1.6vw;
+}
+
+.usericon{
+  height: 3vw;
+}
+
+.commLine{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.TheComment{
+  font-size: 1.2vw;
 }
