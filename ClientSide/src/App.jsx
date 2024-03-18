@@ -18,7 +18,6 @@
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/dropdown" element={<DropDown/>}/>
-          
         </Routes>
       </>
     );

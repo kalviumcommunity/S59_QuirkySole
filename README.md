@@ -20,5 +20,6 @@ Select a Category: Choose from pre-defined categories such as shoes, crocs, heel
 - Search: Use the search feature to quickly find footwear based on categories.
 
 # Deployment Link
-- https://s59-quirkysole.onrender.com
+Render - https://s59-quirkysole.onrender.com
 CloudFlare - https://abhinandangupta-quirkysole-s59.pages.dev/
+Netlify - https://elaborate-conkies-23bc1f.netlify.app/

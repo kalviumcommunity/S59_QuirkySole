@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
+import {toast, ToastContainer} from 'react-toastify'
 
 function Register() {
   const [name, setName] = useState('');
@@ -34,7 +33,7 @@ function Register() {
     if (!validateInputs()) return;
 
     try {
-      const response = await fetch('http://localhost:1213/user/register', {
+      const response = await fetch('https://s59-quirkysole.onrender.com/user/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -81,7 +80,7 @@ function Register() {
           <p style={{ marginTop: '10px', fontSize:'1.3vw' }}>Already a user? <Link to="/login">Log in</Link></p>
         </div>
       </div>
-      <ToastContainer />
+      <ToastContainer/>
     </div>
   );
 }

@@ -11,7 +11,6 @@ function Review() {
   const location = useLocation();
   const state = location.state.data
 
-  const [data, setData] = useState([])
   const [userName, setUserName] = useState("") 
   const [comment, setComment] = useState("")
   const [rating, setRating] = useState("")
@@ -29,9 +28,7 @@ function Review() {
     setAge(e.age)
   }
 
-  useEffect(() => {
-    setData(data)
-  }, [setData])
+
 
   const handleSubmit = () => {
     if(userName && comment && rating && age) {
@@ -52,58 +49,24 @@ function Review() {
       })
       .then(res=>res.json())
       .then(res=>{
-        setData(res)
         setRefresh(true)
-        toast.success('Review added successfully!');
+        // toast.success('Review added successfully!');
+            setUserName("")
+            setComment("")
+            setRating('')
+            setAge('')
       })
       .catch(error=>{
-        console.log(error.message)
-        toast.error('Error adding review. Please try again.');
+        console.log(error)
+       // toast.error('Error adding review. Please try again.');
       })
     }
     else{
-      toast.error('Please fill in all fields before submitting.');
+     // toast.error('Please fill in all fields before submitting.');
     }
   }
 
-  const handleUpdate = async (commentId) => {
-    try {
-      const updatedObject = {
-        userName: userName || "",
-        age: age || "",
-        comment: comment || "",
-        rating: rating || ""
-      };
-  
-      const response = await fetch(`https://s59-quirkysole.onrender.com/review/update/${commentId}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedObject),
-      });
-      
-      console.log('Response:', response);
-      
-      if (response.ok) {
-        const updatedShoe = await response.json();
-        toast.success("Comment updated successfully");
-        
-        setData((data) => {
-          data.map((each) => (each._id === commentId ? updatedShoe : each))
-        }
-      );
-      } else {
-        const errorM = await response.text();
-        toast.error("Failed to update: " + errorM);
-        console.error("Error:", errorM);
-      }
-      
-    } catch (error) {
-      toast.error("An error occurred: " + error.message);
-      console.error("Error:", error);
-    }
-  };
+
   
 
   return (
@@ -155,9 +118,9 @@ function Review() {
 
       </div>
       <div className='commentContainer'>
-        <CommentSection shoeData={location} name={location.state.name} setUpId={setUpId} setClickUpdate = {setClickUpdate} handleEntities={handleEntities} refresh={refresh}/>
+        <CommentSection shoeData={location} name={location.state.name} userName={userName}/>
       </div>
-        <ToastContainer/>
+        {/* <ToastContainer/> */}
     </>
   )
 }
