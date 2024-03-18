@@ -10,7 +10,7 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:1213/user/login', {
+      const response = await fetch('https://s59-quirkysole.onrender.com/user/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -26,8 +26,10 @@ function Login() {
         const {message,user,token} = await response.json();
         setLogin(true);
         if(token){
+          console.log("token is", token)
           document.cookie = `username=${username};expires=Thu, 01 Jan 9999 00:00::00 UTC`;
           document.cookie = `token=${token};expires=Thu, 01 Jan 9999 00:00::00 UTC`;
+          console.log(document.cookie = `token=${token};expires=Thu, 01 Jan 9999 00:00::00 UTC`)
         }
         
         console.log('Login successful');
@@ -42,8 +44,9 @@ function Login() {
 
   const handleLogout = async (e) => {
     e.preventDefault();
+    console.log("asda")
     try {
-      const res = await fetch('http://localhost:1213/user/login', {
+      const res = await fetch('https://s59-quirkysole.onrender.com/user/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -105,7 +108,8 @@ function Login() {
           <div>
             <div className='logoutBox'>
               <h1>WELCOME {username}</h1>
-              <button onClick={handleLogout} className='lgOutBtn'> Logout</button>
+              <button onClick={(e)=>handleLogout(e)} className='lgOutBtn'>logout</button>
+              {/* <button onClick={handleLogout} className='lgOutBtn'>Logout</button> */}
               <Link to='/'><button > Home</button></Link>
             </div>  
           </div>

@@ -89,7 +89,7 @@ body{
 
 @keyframes floatUpDown {
   0%, 100% {
-    transform: translateY(0.5s);
+    transform: translateY(1s);
   }
   50% {
     transform: translateY(-7px);
@@ -346,7 +346,9 @@ body{
 .comment{
   display: flex;
   flex-direction: column;
-  justify-content: left;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 0 10px 15px;
   background-color: white;
   width: 60vw;
   height: 8.8vw;
@@ -379,7 +381,7 @@ body{
 }
 
 .deleteBtn, .updateBtn{
-  height: 8.8vw;
+  height: 9.48vw;
   width: 8vw;
   background-color: white;
   display: flex;
@@ -632,14 +634,14 @@ body{
   width: 20vw;
 }
 
-.lgOutBtn{
+/* .lgOutBtn{
   height: 2.5vw;
   width: 6vw;
   border-radius: 5px;
   border: none;
   background-color: #00BD68;
   color: white;
-}
+} */
 
 
 /* DropDown Page Heading */
@@ -739,4 +741,48 @@ body{
 
 .TheComment{
   font-size: 1.2vw;
+}
+
+
+
+/* Updated comment Popup CSS */
+
+/* UpdateCommentPopup.css */
+.update-popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.update-popup {
+  background-color: white;
+  padding: 20px;
+  height: 21vw;
+  width: 30vw;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.update-popup h2 {
+  margin-top: 0;
+}
+
+.update-popup textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.update-popup button {
+  margin-right: 10px;
+}
+
+.update-popup button:last-child {
+  margin-right: 0;
 }
