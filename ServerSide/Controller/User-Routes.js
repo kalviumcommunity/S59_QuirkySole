@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const jwt = require('jsonwebtoken')
+require('dotenv').config()
 
-const {connectToDB} = require('../db')
 
 const User = require('../Models/userSchema');
 
@@ -25,7 +26,9 @@ router.get('/', async (req, res) => {
         if (!user) {
           return res.status(401).json({ message: 'Invalid username or password' });
         }
-        res.status(200).json({ message: 'Login successful', user });
+       const token  = jwt.sign({userId:user._id}, process.env.SECRET_CODE,{expiresIn:'1h'})
+       console.log(token)
+        res.status(200).json({ message: 'Login successful', user, token });
       } 
       
       else {
