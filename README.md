@@ -22,4 +22,4 @@ Select a Category: Choose from pre-defined categories such as shoes, crocs, heel
 # Deployment Link
 Render - https://s59-quirkysole.onrender.com
 CloudFlare - https://abhinandangupta-quirkysole-s59.pages.dev/
-Netlify - https://elaborate-conkies-23bc1f.netlify.app/
+Netlify - https://661e044dca264a82a703b39e--astounding-bavarois-7f864b.netlify.app/

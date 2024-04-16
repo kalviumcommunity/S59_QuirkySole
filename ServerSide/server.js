@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose')
 const {connectToDB, isConnected} = require('./db')
+connectToDB()
 
 const cors = require('cors')
 const app = express();
@@ -18,7 +19,6 @@ app.use('/api', routes);
 app.use('/review',reviewRoute )
 app.use('/user', userRoute)
 
-connectToDB()
 
     app.get('/', (req, res)=>{
         if(isConnected()){
